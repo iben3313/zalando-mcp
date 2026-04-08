@@ -159,5 +159,8 @@ async def zalando_my_sizes(params: SizeCheckInput) -> str:
     }, ensure_ascii=False, indent=2)
 
 
+import os
+
 if __name__ == "__main__":
-    mcp.run(transport="streamable_http", port=8000)
+    mcp.run(transport="streamable_http", host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
+    
